@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module type="PYTHON_MODULE" version="4">
+  <component name="NewModuleRootManager">
+    <content url="file://$MODULE_DIR$">
+      <excludeFolder url="file://$MODULE_DIR$/generated_imgs/generated_images/epoch_44" />
+      <excludeFolder url="file://$MODULE_DIR$/models/backbones_unet" />
+      <excludeFolder url="file://$MODULE_DIR$/models/patchGAN" />
+      <excludeFolder url="file://$MODULE_DIR$/pretrained-backbones-unet" />
+    </content>
+    <orderEntry type="jdk" jdkName="dyy" jdkType="Python SDK" />
+    <orderEntry type="sourceFolder" forTests="false" />
+  </component>
+</module>

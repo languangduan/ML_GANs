@@ -1,0 +1,17 @@
+2024-10-29 17:49:10,191 - INFO - Hyperparameters:
+2024-10-29 17:49:10,191 - INFO - data_dir: datasets
+2024-10-29 17:49:10,191 - INFO - epochs: 10
+2024-10-29 17:49:10,191 - INFO - batch_size: 4
+2024-10-29 17:49:10,191 - INFO - lr: 0.0002
+2024-10-29 17:49:10,191 - INFO - beta1: 0.5
+2024-10-29 17:49:10,191 - INFO - beta2: 0.999
+2024-10-29 17:49:10,191 - INFO - model_save_dir: ./checkpoints
+2024-10-29 17:49:10,191 - INFO - img_save_dir: generated_imgs
+2024-10-29 17:49:10,191 - INFO - log_save_dir: logs
+2024-10-29 17:49:10,191 - INFO - device: cuda:0
+2024-10-29 17:49:10,191 - INFO - lambda_cycle: 10.0
+2024-10-29 17:49:10,192 - INFO - seed: 42
+2024-10-29 17:49:10,877 - INFO - Loading pretrained weights from url (https://dl.fbaipublicfiles.com/convnext/convnext_base_1k_224_ema.pth)
+2024-10-29 17:49:12,273 - INFO - Loading pretrained weights from url (https://dl.fbaipublicfiles.com/convnext/convnext_base_1k_224_ema.pth)
+2024-10-29 17:49:13,750 - INFO - Generated dataloaders from datasets
+2024-10-29 17:49:22,148 - INFO - Batch 0, Monet Gen Loss: 28.3724, Photo Gen Loss: 29.7482, Monet Disc Loss: 0.6955, Photo Disc Loss: 0.6909

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="d9676e04-7ce1-400b-954e-42f2b60ae12b" name="lily">
+        <fileTransfer rootFolder="/home/tiantong/dyy" accessType="SFTP" host="172.21.47.116" port="22" sshConfigId="8bb761a9-ac3f-454b-909f-3585d2ef8b25" sshConfig="tiantong@172.21.47.116:22 password">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" keepAliveTimeout="0" passiveMode="true" shareSSLContext="true" />
+          </advancedOptions>
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>

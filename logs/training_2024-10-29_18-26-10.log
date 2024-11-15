@@ -1,0 +1,16 @@
+2024-10-29 18:26:10,956 - INFO - Hyperparameters:
+2024-10-29 18:26:10,956 - INFO - data_dir: datasets
+2024-10-29 18:26:10,956 - INFO - epochs: 45
+2024-10-29 18:26:10,956 - INFO - batch_size: 4
+2024-10-29 18:26:10,956 - INFO - lr: 0.0002
+2024-10-29 18:26:10,956 - INFO - beta1: 0.5
+2024-10-29 18:26:10,956 - INFO - beta2: 0.999
+2024-10-29 18:26:10,956 - INFO - model_save_dir: ./checkpoints
+2024-10-29 18:26:10,956 - INFO - img_save_dir: generated_imgs
+2024-10-29 18:26:10,956 - INFO - log_save_dir: logs
+2024-10-29 18:26:10,956 - INFO - device: cuda:0
+2024-10-29 18:26:10,956 - INFO - lambda_cycle: 10.0
+2024-10-29 18:26:10,956 - INFO - seed: 42
+2024-10-29 18:26:11,834 - INFO - Loading pretrained weights from url (https://dl.fbaipublicfiles.com/convnext/convnext_base_1k_224_ema.pth)
+2024-10-29 18:26:13,084 - INFO - Loading pretrained weights from url (https://dl.fbaipublicfiles.com/convnext/convnext_base_1k_224_ema.pth)
+2024-10-29 18:26:13,840 - INFO - Generated dataloaders from datasets

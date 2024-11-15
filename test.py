@@ -1,0 +1,3 @@
+import backbones_unet
+
+print(backbones_unet.__available_models__)
