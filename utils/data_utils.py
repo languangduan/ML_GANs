@@ -190,3 +190,33 @@ def load_latest_checkpoint(model, model_save_dir):
     logging.info(f"Loaded checkpoint '{checkpoint_path}' (epoch {latest_epoch})")
 
     return latest_epoch
+
+
+class ImageBuffer:
+    def __init__(self, buffer_size=50):
+        self.buffer_size = buffer_size
+        self.buffer = []
+        self.num_imgs = 0
+
+    def __call__(self, images):
+        if self.buffer_size == 0:
+            return images
+
+        return_images = []
+        for image in images:
+            image = image.unsqueeze(0)  # 添加batch维度
+
+            if self.num_imgs < self.buffer_size:
+                self.buffer.append(image)
+                self.num_imgs += 1
+                return_images.append(image)
+            else:
+                if random.random() > 0.5:
+                    random_idx = random.randint(0, self.buffer_size - 1)
+                    temp = self.buffer[random_idx].clone()
+                    self.buffer[random_idx] = image
+                    return_images.append(temp)
+                else:
+                    return_images.append(image)
+
+        return torch.cat(return_images, 0)

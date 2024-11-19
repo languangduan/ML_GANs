@@ -2,14 +2,19 @@ import torch
 import torch.nn as nn
 import torch.optim as optim
 
+from utils.data_utils import ImageBuffer
+
+
 class CycleGan(nn.Module):
-    def __init__(self, monet_generator, photo_generator, monet_discriminator, photo_discriminator, lambda_cycle=10):
+    def __init__(self, monet_generator, photo_generator, monet_discriminator, photo_discriminator, lambda_cycle=10, buffer_size=50):
         super(CycleGan, self).__init__()
         self.m_gen = monet_generator
         self.p_gen = photo_generator
         self.m_disc = monet_discriminator
         self.p_disc = photo_discriminator
         self.lambda_cycle = lambda_cycle
+        self.fake_monet_buffer = ImageBuffer(buffer_size)
+        self.fake_photo_buffer = ImageBuffer(buffer_size)
 
     def compile(self, m_gen_optimizer, p_gen_optimizer, m_disc_optimizer, p_disc_optimizer, gen_loss_fn, disc_loss_fn, cycle_loss_fn, identity_loss_fn):
         self.m_gen_optimizer = m_gen_optimizer
@@ -40,12 +45,17 @@ class CycleGan(nn.Module):
         same_monet = self.m_gen(real_monet)
         same_photo = self.p_gen(real_photo)
 
-        # 3. 判别器输出
+        # 3. 使用buffer获取历史假图像
+        fake_monet_buffer = self.fake_monet_buffer(fake_monet)
+        fake_photo_buffer = self.fake_photo_buffer(fake_photo)
+
+        # 4. 判别器输出
         disc_real_monet = self.m_disc(real_monet)
         disc_real_photo = self.p_disc(real_photo)
 
-        disc_fake_monet = self.m_disc(fake_monet)
-        disc_fake_photo = self.p_disc(fake_photo)
+        # 使用buffer中的图像进行判别
+        disc_fake_monet = self.m_disc(fake_monet_buffer)
+        disc_fake_photo = self.p_disc(fake_photo_buffer)
 
         # 计算损失
         # 1. 生成器损失

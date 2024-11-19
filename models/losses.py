@@ -47,8 +47,8 @@ def disc_loss_fn(real_output, fake_output):
     fake_loss = nn.BCELoss()(fake_output, torch.zeros_like(fake_output))
     return (real_loss + fake_loss) / 2
 
-def cycle_loss_fn(real, cycled, lambda_cycle):
-    return lambda_cycle * nn.L1Loss()(real, cycled)
+def cycle_loss_fn(real, cycled, lambda_cycle, lambda_idt=0.5):
+    return lambda_idt * lambda_cycle * nn.L1Loss()(real, cycled)
 
 def identity_loss_fn(real, same, lambda_cycle):
     return lambda_cycle/5 * nn.L1Loss()(real, same)
